@@ -30,6 +30,8 @@ app.listen(port, function () {
   console.log(`init server on port: ${port}, ${process.env.NODE_ENV} mode`);
 });
 
+app.locals
+
 //set all avaiable routes
 let routePath = './routes/';
 fs.readdirSync(routePath).forEach(function(file) { 

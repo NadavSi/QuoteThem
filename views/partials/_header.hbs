@@ -4,7 +4,7 @@
             <div class="col s4 form-field">
                 <select class="form-control browser-default" style="border-radius: 10px;" id="author" name="author">
                     <option value="" disabled selected>find Author...</option>
-                    {{#each authors}}
+                    {{#each search.authors}}
                     <option value="{{this.name}}">{{this.name}}</option>
                     {{/each}}
                 </select>
@@ -12,7 +12,7 @@
             <div class="col s4 form-field">
                 <select class="form-control browser-default" style="border-radius: 10px;" id="tag" name="tag">
                     <option value="" disabled selected>find Tag...</option>
-                    {{#each tags}}
+                    {{#each search.tags}}
                     <option value="{{this.name}}">{{this.name}}</option>
                     {{/each}}
                 </select>

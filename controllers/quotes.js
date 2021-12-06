@@ -1,12 +1,14 @@
 const fetch = require('node-fetch');
-// var session = require('express-session');
-// var express = require('express');
-// var app = express();
-// app.use(session({ secret: 'XOXOXOP' }));
 const QuoteSchema = require('../models/quote');
 const url = "https://goquotes-api.herokuapp.com/api/v1/";
 
-exports.getRandom = (req, res, next) => {
+async function populateSearch() {
+    let authors = await module.exports.getAllAuthors();
+    let tags = await module.exports.getAllTags();
+    return { authors: authors, tags: tags };
+}
+
+exports.getRandom = async (req, res, next) => {
     let settings = { method: "Get" };
     fetch(url + 'random?count=1', settings)
         .then(res => res.json())
@@ -15,7 +17,10 @@ exports.getRandom = (req, res, next) => {
             let quote = new QuoteSchema();
             quote.content = json.quotes[0].text;
             quote.author = json.quotes[0].author;
-            res.render('quotes/index', { random: true, data: quote });
+            populateSearch().then(searchOptions => {
+                res.render('quotes/index', { random: true, data: quote, search: searchOptions });
+            })
+            
         });
 
 }
