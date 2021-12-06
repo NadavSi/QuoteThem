@@ -1,4 +1,7 @@
-<div class="container">
-    <span style="font-size: 16px;"><b>Quote Of The Day:</b></span><br/>
-    <h2>{{data.content}}</h2>
+<div style="margin: 0 15px;">
+    {{#if data.random }}
+    <span style="font-size: 18px;"><b>Quote Of The Day:</b></span><br/>
+    {{/if}}
+    <h3>{{data.content}}</h3>
+    <div style=" font-size: 16px; float: right;">~{{data.author}}~</div>
 </div> 
