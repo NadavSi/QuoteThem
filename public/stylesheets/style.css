@@ -1,0 +1,14 @@
+html {
+  height: 100%;;
+}
+body {
+  height: 100%;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: rgb(3,128,204);
+  background: linear-gradient(180deg, rgba(3,128,204,1) 0%, rgba(90,167,214,1) 29%, rgba(124,183,219,1) 64%, rgba(237,234,234,1) 100%);
+}
+
+a {
+  color: #00B7FF;
+}
